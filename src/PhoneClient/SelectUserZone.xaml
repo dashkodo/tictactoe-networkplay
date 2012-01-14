@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="PhoneClient.SelectUserZone"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot">
+        <ListBox Height="390" HorizontalAlignment="Left" Margin="10,11,0,0" Name="listBox1" VerticalAlignment="Top" Width="460" />
+        <Button Content="Select" Height="72" HorizontalAlignment="Left" Margin="265,407,0,0" Name="button1" VerticalAlignment="Top" Width="160" Click="select_Click" />
+        <Button Content="Refresh" Height="72" HorizontalAlignment="Left" Margin="51,407,0,0" Name="button2" VerticalAlignment="Top" Width="160" Click="refresh_Click" />
+    </Grid>
+</UserControl>

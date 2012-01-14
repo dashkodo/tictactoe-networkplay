@@ -1,0 +1,9 @@
+﻿<Window x:Class="DesktopClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="345" Width="300">
+    <Grid Height="385">
+        <Grid x:Name="ContentPanel" Margin="17,47,11,88" Width="250" Height="250"></Grid>
+        <TextBlock Height="23" HorizontalAlignment="Center" Margin="79,19,71,0" Name="PageTitle" Text="Login" VerticalAlignment="Top" Width="129" FontWeight="ExtraBold" FontSize="14" TextAlignment="Center" />
+    </Grid>
+</Window>
