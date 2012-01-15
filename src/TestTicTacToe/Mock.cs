@@ -11,7 +11,7 @@ namespace TestTicTacToe.Mock
      }
     class ClientMock : Client
     {
-        string input;
+        public string input;
         public ClientMock() { }
         public ClientMock(System.Net.Sockets.TcpClient p, string s)
         {

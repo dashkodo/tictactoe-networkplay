@@ -27,7 +27,7 @@ namespace NewServerApi
         public List<Client> ClientList
         {
             get { return _ClientList; }
-            private set { }
+          //  private set { }
         }
 
         public void AddClient(TcpClient c)
@@ -36,7 +36,7 @@ namespace NewServerApi
         }
 
         
-        public void StartGame(string p1, string p2)
+        public bool StartGame(string p1, string p2)
         {
             Trace.WriteLine("ICLientList.StartGame(" + p1 + "," + p2 + ");");
 
@@ -59,8 +59,10 @@ namespace NewServerApi
             {
 
                 Trace.WriteLine("IClientList.StartGame(" + p1 + "," + p2 + "); Finded Both users");
-                StartGameEvent(new GameEventArgs(p1cc, p2cc));
-            }
+                if(StartGameEvent!=null) StartGameEvent(new GameEventArgs(p1cc, p2cc));
+                Trace.WriteLine("IClientList.StartGame(" + p1 + "," + p2 + "); EventStartGame");
+                return true;
+            } return false;
 
         }
         public void RemoveClient(TcpClient c)

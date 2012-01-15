@@ -89,7 +89,7 @@ namespace TestTicTacToe
         }
 
        
-        [ExpectedException(typeof(IgnoreException))]
+        [ExpectedException(typeof(ApplicationException))]
         [Test, TestCaseSource("CaseSource")]
        public void StartGameTest(AbsClientList obj)
         {
@@ -98,12 +98,53 @@ namespace TestTicTacToe
             obj.StartGameEvent += new GameEventHandler(obj_StartGameEvent);
             obj.StartGame("p1","p2");
         }
-
+        [Test, TestCaseSource("CaseSource")]
+        public void StartGameFalseTest(AbsClientList obj)
+        {
+            obj.AddClient(new ClientMock(null, "p1"));
+            obj.AddClient(new ClientMock(null, "p2"));
+                     Assert.IsFalse(obj.StartGame("p1", "p3"));
+        }
+        [Test, TestCaseSource("CaseSource")]
+        public void StartGameTrueTest(AbsClientList obj)
+        {
+            obj.AddClient(new ClientMock(null, "p1"));
+            obj.AddClient(new ClientMock(null, "p2"));
+            obj.StartGameEvent += new GameEventHandler((GameEventArgs e) => { });
+            Assert.IsTrue(obj.StartGame("p1", "p2"));
+        }
+      
         void obj_StartGameEvent(GameEventArgs e)
         {
-            throw new IgnoreException("",null);
+            throw new ApplicationException();
         }
 
-       
+
+        [Test, TestCaseSource("CaseSource")]
+        public void SendMessageTest(AbsClientList obj)
+        {
+            ClientMock p1 = new ClientMock(null, "p1");
+            ClientMock p2 = new ClientMock(null, "p2");
+            obj.AddClient(p1);
+            obj.AddClient(p2);
+            
+            Assert.IsTrue(obj.SendMessage("m1", "p1"));
+             Assert.IsTrue(obj.SendMessage("m2", "p2"));
+
+            Assert.AreEqual("m1", p1.input);
+            Assert.AreEqual("m2", p2.input);
+        }
+
+
+        [Test, TestCaseSource("CaseSource")]
+        public void SendMessageFalseTest(AbsClientList obj)
+        {
+            ClientMock p1 = new ClientMock(null, "p1");
+            obj.AddClient(p1);
+         
+            Assert.IsFalse(obj.SendMessage("m2", "p2"));
+       }
+   
+
     }
 }
