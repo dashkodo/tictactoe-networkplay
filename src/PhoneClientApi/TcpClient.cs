@@ -18,7 +18,6 @@ namespace ClientApi
      public class TcpClient
     {
         Socket client = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
-        //Requster client = new Requster("http://192.168.56.1",1111);
         public event EventHandler ReceivedMessage;
         string content;
         public string Content
@@ -43,7 +42,6 @@ namespace ClientApi
         {
             SocketAsyncEventArgs socketEventArg = new SocketAsyncEventArgs();
             socketEventArg.RemoteEndPoint = client.RemoteEndPoint;
-         //   socketEventArg.UserToken = null;
                 byte[] payload = Encoding.UTF8.GetBytes(data);
                 socketEventArg.SetBuffer(payload, 0, payload.Length);
                 client.SendAsync(socketEventArg);
@@ -61,7 +59,6 @@ namespace ClientApi
                 socketEventArg.Completed += new EventHandler<SocketAsyncEventArgs>(delegate(object s, SocketAsyncEventArgs e)
                 {
                     response = Encoding.UTF8.GetString(e.Buffer, e.Offset, e.BytesTransferred);
-                    //                    response = response.Remove('\0');
                     Content = response;
                 });
                 client.ReceiveAsync(socketEventArg);
@@ -81,42 +78,5 @@ namespace ClientApi
 
      }
 
-    /*public class TcpClient2
-    {
-        public static TcpClient Instance = new TcpClient();
-        Client client = new Client();
-        //Requster client = new Requster("http://192.168.56.1",1111);
-        public event EventHandler ReceivedMessage;
-
-        public String Content;
-        TcpClient()
-        {
-            client.Connected += new Client.ConnectArgs(client_Connected);
-            client.Recieved += new Client.RecievedArgs(instance_Recieved);
-            client.ConnectAsync("192.168.56.1", 1111);
-
-        }
-
-        void client_Connected(string s)
-        {
-            client.StartListening();
-
-        }
-
-        void instance_Recieved(byte[] result)
-        {
-            Content = Encoding.UTF8.GetString(result, 0, result.Length);
-            Content.Trim();
-            var handler = ReceivedMessage;
-            if (handler != null) handler(null, new EventArgs());
-        }
-        public void SendMsg(string s)
-        {
-            client.SendAsync(s);
-            Thread.Sleep(500);
-
-        }
-
-    }
-     */ 
+     
 }
