@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace NewServerApi
 {
-    class GameListSingleThread:AbsGameList
+    public class GameListSingleThread:AbsGameList
     {
          public override void StartGame(GameEventArgs e)
         {

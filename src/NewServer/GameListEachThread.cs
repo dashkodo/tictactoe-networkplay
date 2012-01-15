@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NewServerApi
 {
-    class GameListEachThread:AbsGameList
+    public class GameListEachThread:AbsGameList
     {
         public override void StartGame(GameEventArgs e)
         {

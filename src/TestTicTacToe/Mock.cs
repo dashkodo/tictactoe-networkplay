@@ -1,5 +1,7 @@
 ﻿using ClientApi;
 using NewServerApi;
+using System;
+
 namespace TestTicTacToe.Mock
 {
     class ClientSocketMock:ClientSocket
@@ -27,6 +29,12 @@ namespace TestTicTacToe.Mock
             //base.SendMessage(Message);
         }
 
-      
+        public override bool Check()
+        {
+            input = "input";
+            return false;
+            //base.SendMessage(Message);
+        }
+        
     }
 }

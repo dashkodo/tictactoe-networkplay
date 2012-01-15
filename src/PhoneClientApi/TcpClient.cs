@@ -65,9 +65,6 @@ namespace ClientApi
             }
         }
 
-        /// <summary>
-        /// Closes the Socket connection and releases all associated resources
-        /// </summary>
         public void Close()
         {
             if (client != null)

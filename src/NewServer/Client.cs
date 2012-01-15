@@ -21,7 +21,7 @@ namespace NewServerApi
         public string Content
         {
             get;
-            private set;
+            protected set;
         }
         protected NetworkStream _tcpClientStream;
         public TcpClient TcpClient
@@ -73,7 +73,7 @@ namespace NewServerApi
             Trace.WriteLine("SendMsgTo " + Login + ":" + Message);
             
         }
-        public  bool Check()
+        public virtual bool Check()
         {     if (_tcpClient.Available > 0)
                 {
                     int size = _tcpClient.Available;

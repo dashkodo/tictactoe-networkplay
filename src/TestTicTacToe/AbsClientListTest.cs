@@ -22,52 +22,49 @@ namespace TestTicTacToe
         [Test, TestCaseSource("CaseSource")]
         public void AddClientTest3(AbsClientList obj)
         {
-            AbsClientList target = obj;
             ClientMock a = new ClientMock();
             ClientMock b = new ClientMock();
             ClientMock c = new ClientMock();
            
-            target.AddClient(a);
-            target.AddClient(b);
-            target.AddClient(c);
-            Assert.AreEqual(a, target.ClientList[0]);
-            Assert.AreEqual(b, target.ClientList[1]);
-            Assert.AreEqual(c, target.ClientList[2]);
+            obj.AddClient(a);
+            obj.AddClient(b);
+            obj.AddClient(c);
+            Assert.AreEqual(a, obj.ClientList[0]);
+            Assert.AreEqual(b, obj.ClientList[1]);
+            Assert.AreEqual(c, obj.ClientList[2]);
 
         }
         [Test, TestCaseSource("CaseSource")]
         public void AddClientTest1(AbsClientList obj)
         {
-            AbsClientList target = obj;
             ClientMock p = new ClientMock();
-            target.AddClient(p);
-            Assert.AreEqual(p, target.ClientList[0]);
+            obj.AddClient(p);
+            Assert.AreEqual(p, obj.ClientList[0]);
 
         }
         [Test, TestCaseSource("CaseSource")]
         public void AddClientTest0(AbsClientList obj)
         {
             AbsClientList target = obj;
-            Assert.AreEqual(0, target.ClientList.Count);
+            Assert.AreEqual(0, obj.ClientList.Count);
 
         }
         
         [Test, TestCaseSource("CaseSource")]
         public void RemoveClientTest(AbsClientList obj)
         {
-            AbsClientList target = obj;
             ClientMock a = new ClientMock();
             ClientMock b = new ClientMock();
             ClientMock c = new ClientMock();
             
-            target.AddClient(a);
-            target.AddClient(b);
-            target.AddClient(c);
-            Assert.AreEqual(3, target.ClientList.Count);
-            target.RemoveClient(b);
-            Assert.AreEqual(2, target.ClientList.Count);
-            Assert.AreEqual(a, target.ClientList[0]);
-            Assert.AreEqual(c, target.ClientList[1]);
+            obj.AddClient(a);
+            obj.AddClient(b);
+            obj.AddClient(c);
+            Assert.AreEqual(3, obj.ClientList.Count);
+            obj.RemoveClient(b);
+            Assert.AreEqual(2, obj.ClientList.Count);
+            Assert.AreEqual(a, obj.ClientList[0]);
+            Assert.AreEqual(c, obj.ClientList[1]);
 
             
 
@@ -76,28 +73,19 @@ namespace TestTicTacToe
         [Test, TestCaseSource("CaseSource")]
         public void RemoveClientTestTcp(AbsClientList obj)
         {
-            AbsClientList target = obj;
             TcpClient a = new TcpClient("127.0.0.1",80);
            
-            target.AddClient(a);
-            Assert.AreEqual(1, target.ClientList.Count);
-            target.RemoveClient(a);
-            Assert.AreEqual(0, target.ClientList.Count);
+            obj.AddClient(a);
+            Assert.AreEqual(1, obj.ClientList.Count);
+            obj.RemoveClient(a);
+            Assert.AreEqual(0, obj.ClientList.Count);
             
 
 
         }
 
        
-        [ExpectedException(typeof(ApplicationException))]
-        [Test, TestCaseSource("CaseSource")]
-       public void StartGameTest(AbsClientList obj)
-        {
-            obj.AddClient(new ClientMock(null,"p1"));
-            obj.AddClient(new ClientMock(null,"p2"));
-            obj.StartGameEvent += new GameEventHandler(obj_StartGameEvent);
-            obj.StartGame("p1","p2");
-        }
+       
         [Test, TestCaseSource("CaseSource")]
         public void StartGameFalseTest(AbsClientList obj)
         {
@@ -114,11 +102,7 @@ namespace TestTicTacToe
             Assert.IsTrue(obj.StartGame("p1", "p2"));
         }
       
-        void obj_StartGameEvent(GameEventArgs e)
-        {
-            throw new ApplicationException();
-        }
-
+       
 
         [Test, TestCaseSource("CaseSource")]
         public void SendMessageTest(AbsClientList obj)
@@ -144,7 +128,19 @@ namespace TestTicTacToe
          
             Assert.IsFalse(obj.SendMessage("m2", "p2"));
        }
-   
+
+        [Test, TestCaseSource("CaseSource")]
+        public void ReturnUserTest(AbsClientList obj)
+        {
+            ClientMock p1 = new ClientMock(null, "p1");
+            ClientMock p2 = new ClientMock(null, "p2");
+            Assert.AreEqual(0, obj.ClientList.Count);
+         
+            obj.ReturnUser(new GameEventArgs(p1,p2));
+            Assert.AreEqual(2,obj.ClientList.Count);
+        }
+       
+
 
     }
 }

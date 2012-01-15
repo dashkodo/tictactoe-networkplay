@@ -8,10 +8,7 @@ namespace TestTicTacToe
     public class IOTest
     {
             Mock.ClientSocketMock p = new Mock.ClientSocketMock();
-        void init()
-        {
-           
-                }
+       
         [Test]
         public void IOConstructorTest()
         {

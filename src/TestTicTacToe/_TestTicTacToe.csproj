@@ -36,6 +36,7 @@
     <Reference Include="Fleck">
       <HintPath>..\NewServer\lib\Fleck.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\TestDriven.NET 3\NUnit\2.5\framework\nunit.framework.dll</HintPath>
@@ -55,6 +56,7 @@
   <ItemGroup>
     <Compile Include="AbsClientListTest.cs" />
     <Compile Include="ClientParserTest.cs" />
+    <Compile Include="ClientTest.cs" />
     <Compile Include="FieldTest.cs" />
     <Compile Include="IOTest.cs" />
     <Compile Include="JsonFactoryTest.cs" />
@@ -62,6 +64,8 @@
     <Compile Include="MyPacketTest.cs" />
     <Compile Include="PersonTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AbsGameListTest.cs" />
+    <Compile Include="ClientSocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClientApi\ClientApi.csproj">
