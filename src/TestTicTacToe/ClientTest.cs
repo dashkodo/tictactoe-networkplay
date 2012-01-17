@@ -7,7 +7,7 @@ namespace TestTicTacToe
 {
 
 
-    [TestFixture]
+    //[TestFixture]
     public class ClientTest
     {
         ServerGeneral p = ServerGeneral.Instance;

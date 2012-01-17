@@ -1,7 +1,7 @@
 ﻿using ClientApi;
 using NUnit.Framework;
 using JsonLib;
-
+using System.Reflection;
 namespace TestTicTacToe
 {
     [TestFixture]
@@ -69,12 +69,20 @@ namespace TestTicTacToe
             Assert.AreEqual(IO.Instance.Content.Data,"_d");
             Assert.AreEqual(IO.Instance.Content.Type,"_t");
         }
+        [Test]
         public void p_PropertyChangedTest()
         {
+
+            IO.Instance.Connection = p;
+            p.Content = JsonLib.JsonFactory.GetJsonPacket("_t","_d");
+            object[] param = new object[2]{null, null};
+
+            var m = typeof(IO).GetMethod("p_PropertyChanged", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            Assert.IsNotNull(m);
+            m.Invoke(IO.Instance,param );
+            Assert.AreEqual(IO.Instance.Content.Data, "_d");
+            Assert.AreEqual(IO.Instance.Content.Type, "_t");
         }
-        public void OnPropertyChangedTest()
-        {
-        }
-     
+      
      }
 }

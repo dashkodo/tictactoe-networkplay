@@ -22,6 +22,7 @@ namespace ClientApi
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
+            if(PropertyChanged!=null)
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
         public virtual void SendMsg(String input)

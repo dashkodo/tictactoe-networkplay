@@ -8,7 +8,7 @@ namespace TestTicTacToe
 {
 
 
-    [TestFixture]
+    //[TestFixture]
     public class ClientSocketTest
     {
         ServerGeneral p = ServerGeneral.Instance;
@@ -27,13 +27,6 @@ namespace TestTicTacToe
         {           
             ClientSocket tc = new ClientSocket();
             tc.SendMsg("msg");
-            Assert.Pass();
-        }
-        [Test]
-        public void ClientSendMsgExitTest()
-        {
-            ClientSocket tc = new ClientSocket();
-            tc.SendMsg("exit");
             Assert.Pass();
         }
         [Test]

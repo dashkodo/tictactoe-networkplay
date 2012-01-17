@@ -39,7 +39,7 @@ namespace NewServerApi
             clientArray.StartGameEvent += new GameEventHandler(gameArray.StartGame);
 
         }
-
+        bool flag = true;
         #region Server Start/Stop
         public void StartListen() //cлушаем порт в потоке для приема входящх подключений
         {
@@ -51,7 +51,8 @@ namespace NewServerApi
             tcpServer = new TcpListener(localAddr, Port);
             tcpServer.Start();
             Trace.WriteLineIf(tracelevel.TraceInfo, "Starting loop for TCP listener");
-            while (true)
+            flag = true;
+            while (flag)
             {
                 var p = tcpServer.AcceptTcpClient();
                 if (p != null)
@@ -62,6 +63,7 @@ namespace NewServerApi
         public void StopServer()
         {
             Trace.WriteLineIf(tracelevel.TraceInfo, "StopServer()");
+            flag = false;
             if (tcpServer != null)
             {
                 tcpServer.Stop();

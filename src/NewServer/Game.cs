@@ -127,6 +127,7 @@ namespace NewServerApi
         
         void ReInit()
         {
+            Thread.Sleep(1500);
             yesAns = 0;
             player1.SendMessage(JsonLib.JsonFactory.GetJsonPacket("SetPartnerRequest", "Again"));
             player2.SendMessage(JsonLib.JsonFactory.GetJsonPacket("SetPartnerRequest", "Again"));
