@@ -19,6 +19,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketProxy", "WebProxy\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsole", "ConsoleClient\ClientConsole.csproj", "{AE02BECB-79CC-4267-95A9-412D5EA8E53B}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebClient", "..\флешка\softserve\TicTacToe\WebClient\", "{868CD245-14E2-4544-814B-1D7991AAB24E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/WebClient"
+		Debug.AspNetCompiler.PhysicalPath = "..\флешка\softserve\TicTacToe\WebClient\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebClient\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebClient"
+		Release.AspNetCompiler.PhysicalPath = "..\флешка\softserve\TicTacToe\WebClient\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebClient\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63118"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TicTacToe.vsmdi
@@ -126,6 +146,16 @@ Global
 		{AE02BECB-79CC-4267-95A9-412D5EA8E53B}.Release|Mixed Platforms.Build.0 = Release|x86
 		{AE02BECB-79CC-4267-95A9-412D5EA8E53B}.Release|x86.ActiveCfg = Release|x86
 		{AE02BECB-79CC-4267-95A9-412D5EA8E53B}.Release|x86.Build.0 = Release|x86
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{868CD245-14E2-4544-814B-1D7991AAB24E}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
