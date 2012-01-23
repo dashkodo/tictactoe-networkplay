@@ -49,6 +49,13 @@ namespace DesktopClient
         void AnswerEvent(object sender, EventArgs e)
         {
             MessageBox.Show("Вам Отказано!");
+            Dispatcher.Invoke(
+          (Action)(() =>
+          {
+              ContentPanel.Children.Clear();
+              ContentPanel.Children.Add(suz);
+          }));
+       
             
         }
     

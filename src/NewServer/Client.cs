@@ -17,6 +17,7 @@ namespace NewServerApi
         protected TcpClient _tcpClient;
         List<string> _content = new List<string>();
         public Thread thread;
+        
 
         public string Content
         {
@@ -74,7 +75,9 @@ namespace NewServerApi
             
         }
         public virtual bool Check()
-        {     if (_tcpClient.Available > 0)
+        {
+            
+            if (_tcpClient.Available > 0)
                 {
                     int size = _tcpClient.Available;
                     byte[] arr = new byte[size];

@@ -73,11 +73,30 @@ namespace NewServerApi
             t.Start();
             
         }
-        
+
         public void checkClient()
         {
-            if (player1.Check()) Parser.ParseGameCommand(JsonFactory.GetObjPacket(player1.Content), player1,this);
-            if (player2.Check()) Parser.ParseGameCommand(JsonFactory.GetObjPacket(player2.Content), player2, this);
+            try
+            {
+                if (player1.Check()) Parser.ParseGameCommand(JsonFactory.GetObjPacket(player1.Content), player1, this);
+            }
+            catch
+            {
+                player2.SendMessage(JsonLib.JsonFactory.GetJsonPacket("Status", "win"));
+                EndGame();
+                return;
+            }
+            try
+            {
+
+                if (player2.Check()) Parser.ParseGameCommand(JsonFactory.GetObjPacket(player2.Content), player2, this);
+            }
+            catch
+            {
+                player1.SendMessage(JsonLib.JsonFactory.GetJsonPacket("Status", "win"));
+                EndGame();
+                return;
+            }
         }
         public void Move(int val,string login)
         {

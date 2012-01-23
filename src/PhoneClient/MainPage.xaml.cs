@@ -43,7 +43,12 @@ namespace PhoneClient
 
         void AnswerEvent(object sender, EventArgs e)
         {
-            Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show("Вам Отказано!"));
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                ContentPanel.Children.Clear();
+                MessageBox.Show("Вам Отказано!");
+                ContentPanel.Children.Add(suz);
+            });
             
         }
        
